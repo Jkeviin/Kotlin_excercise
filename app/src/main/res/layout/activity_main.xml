@@ -15,40 +15,40 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Formulario de registro"
-        android:textColor="#078074"
+        android:textColor="#968014"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.02" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="366dp"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/textView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintVertical_bias="0.15"
         app:layout_constraintWidth_default="wrap"
         app:layout_constraintWidth_max="350dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_cedula"
+            android:id="@+id/txt_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_cedula"
+                android:id="@+id/input_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Cedula" />
+                android:hint="ID" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,42 +66,67 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_apellido"
+            android:id="@+id/txt_descripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_apellido"
+                android:id="@+id/input_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Apellido" />
+                android:hint="Descripcion" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_tel"
+            android:id="@+id/txt_cantidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_telefono"
+                android:id="@+id/input_cantidad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Telefono" />
+                android:hint="Cantidad" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_edad"
+            android:id="@+id/txt_costo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input_edad"
+                android:id="@+id/input_costo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Edad" />
+                android:hint="Costo" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_categoria"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_categoria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Categoria" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt_precio_venta"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_precio_venta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Precio Venta" />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -109,12 +134,12 @@
         android:layout_width="290dp"
         android:layout_height="55dp"
         android:orientation="horizontal"
+        app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65"
-        app:layout_constrainedWidth="true">
+        app:layout_constraintVertical_bias="0.72">
 
         <Button
             android:id="@+id/btn_listar"
@@ -122,16 +147,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:onClick="listarDatos"
             android:text="LISTAR"
-            android:onClick="ListaDatos"
             android:textSize="12sp" />
 
         <Button
             android:id="@+id/btn_eliminar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:onClick="eliminarDatos"
             android:text="ELIMINAR"
             android:textSize="12sp" />
@@ -147,7 +170,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75"
+        app:layout_constraintVertical_bias="0.80"
         app:layout_constrainedWidth="true">
 
         <Button
@@ -183,6 +206,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.88" />
+        app:layout_constraintVertical_bias="0.84"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

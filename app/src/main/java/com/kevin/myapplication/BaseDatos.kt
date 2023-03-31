@@ -46,37 +46,36 @@ class BaseDatos (context: Context):SQLiteOpenHelper (context, "venta", null, 1){
         }
     }
 
-    fun Actualizar(producto: Producto): String {
+    fun Actualizar(id:String, nombre:String, descripcion:String, cantidad:Int, costo:Double, categoria:String, precio_venta:Double):String {
         val db = this.writableDatabase
-
         var contenedor = ContentValues()
-        contenedor.put("id", producto.id)
-        contenedor.put("nombre", producto.nombre)
-        contenedor.put("descripcion", producto.descripcion)
-        contenedor.put("cantidad", producto.cantidad)
-        contenedor.put("costo", producto.costo)
-        contenedor.put("categoria", producto.categoria)
-        contenedor.put("precio_venta", producto.precio_venta)
+        contenedor.put("id", id)
+        contenedor.put("nombre", nombre)
+        contenedor.put("descripcion", descripcion)
+        contenedor.put("cantidad", cantidad)
+        contenedor.put("costo", costo)
+        contenedor.put("categoria", categoria)
+        contenedor.put("precio_venta", precio_venta)
 
-        var resultado = db.update("productos", contenedor, "producto.id=?", arrayOf(producto.id))
+        var resultado = db.update("productos", contenedor, "id=?", arrayOf(id))
 
         try {
-            if(resultado > 0){
-                return "Existe un error al actualizar"
-            }else{
-                return "Se actualizó exitosamente"
+            if (resultado > 0) {
+                return "Actualización exitosa"
+            } else {
+                return "Error en la actualización"
             }
-        }catch (ex: Exception){
+        } catch (ex: Exception) {
             return ex.message.toString()
         } finally {
             db.close()
         }
     }
 
-    fun eliminarDatos(producto: Producto): String {
+    fun eliminarDatos(id: String): String {
         val db = this.writableDatabase
 
-        var resultado = db.delete("productos", "producto.id=?", arrayOf(producto.id))
+        var resultado = db.delete("productos", "id=?", arrayOf(id))
 
         try {
             if(resultado > 0){
@@ -120,3 +119,4 @@ class BaseDatos (context: Context):SQLiteOpenHelper (context, "venta", null, 1){
         return lista
     }
 }
+
